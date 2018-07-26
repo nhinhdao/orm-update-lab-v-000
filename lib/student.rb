@@ -1,3 +1,4 @@
+require 'pry'
 require_relative "../config/environment.rb"
 
 class Student
@@ -41,6 +42,7 @@ class Student
     end
 
     def self.find_by_name(name)
+        binding.pry
         sql = "select * from students where name = ?"
         DB[:conn].execute(sql, name).map { |row|  self.new_from_db(row)}.first
     end
