@@ -25,8 +25,8 @@ class Student
         else
             sql = "INSERT INTO students (name, grade) values (?, ?)"
             DB[:conn].execute(sql, self.name, self.grade)
+            @id = DB[:conn].execute("select last_insert_rowid() from students")[0][0]
         end
-        @id = DB[:conn].execute("select last_insert_rowid() from students")[0][0]
     end
 
     def self.create(name, grade)
