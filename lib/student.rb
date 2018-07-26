@@ -22,7 +22,7 @@ class Student
         if self.id
             self.update
         else
-            sql = "INSERT INTO students values (?, ?)"
+            sql = "INSERT INTO students (name, grade) values (?, ?)"
             DB[:conn].execute(sql, self.name, self.grade)
         end
         @id = DB[:conn].execute("select last_insert_rowid() from students")[0][0]
