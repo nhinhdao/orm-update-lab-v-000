@@ -19,7 +19,7 @@ class Student
     end
 
     def save
-        if self.if
+        if self.id
             self.update
         else
             sql = "INSERT INTO students values (?, ?)"
